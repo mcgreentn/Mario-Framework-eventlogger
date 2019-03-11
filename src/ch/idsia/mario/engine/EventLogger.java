@@ -23,9 +23,12 @@ public class EventLogger {
 	static JSONArray actions = new JSONArray();
 	
 	static int currTimeStamp = 0;
-	boolean createNewFile = false;
 	
-	static String filename = "event_log_" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime()) + ".json";
+	static String fn = "event_log_" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+	
+	static int world_num = 1;
+	
+	static String filename = fn + "_" + world_num + ".json";
 	
 	@SuppressWarnings("unchecked")
 	public static void addToLogger(String action, int status, float x, float y, int timeStamp) {
@@ -98,6 +101,14 @@ public class EventLogger {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		//that world/run is done
+		//reset vars
+		world_num += 1;
+		filename = fn + "_" + world_num + ".json";
+		obj = new JSONObject();
+		actions = new JSONArray();
+		currTimeStamp = 0;
+		previous_actions = new HashSet<String>();
 	}
 	
 }
