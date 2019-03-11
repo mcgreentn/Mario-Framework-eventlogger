@@ -88,4 +88,16 @@ public class EventLogger {
 		}
 		
 	}
+	
+	public static void writeLogger(Boolean ending) {
+		readJson(filename);
+		try (FileWriter file = new FileWriter(filename, false)) {
+			file.write(obj.toJSONString());
+			System.out.println("Successfully Copied JSON Object to File...");
+			System.out.println("JSON Object: " + obj);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 }

@@ -687,7 +687,7 @@ public class Mario extends Sprite {
 		world.paused = true;
 		winTime = 1;
 		status = Mario.STATUS_WIN;
-		EventLogger.writeLogger();
+		EventLogger.writeLogger(true);
 	}
 
 	public void die() {
@@ -708,7 +708,7 @@ public class Mario extends Sprite {
 		world.paused = true;
 		deathTime = 25;
 		status = Mario.STATUS_DEAD;
-		EventLogger.writeLogger();
+		EventLogger.writeLogger(true);
 	}
 
 	public void getFlower() {
