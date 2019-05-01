@@ -34,7 +34,7 @@ public class EventLogger {
 	public static void addToLogger(String action, int status, float x, float y, int timeStamp) {
 //		System.out.println(action + " " + timeStamp);
 		
-		if (!previous_actions.contains(action)) {
+		//if (!previous_actions.contains(action)) {
 			//check if it is a new timeStamp
 			if(timeStamp != currTimeStamp) {
 				writeLogger(); 
@@ -50,7 +50,7 @@ public class EventLogger {
 			actions.add(to_log);
 			
 			previous_actions.add(action);
-		}
+		//}
 	}
 	
 	@SuppressWarnings("unchecked")
